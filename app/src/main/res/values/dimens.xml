@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cadastro_title_size">80sp</dimen>
+    <dimen name="cadastro_form_margin">16dp</dimen>
+    <dimen name="cadastro_bt_width">150dp</dimen>
+    <dimen name="form_input_margin">16dp</dimen>
+    <dimen name="fechamento_num_margin">16dp</dimen>
+</resources>

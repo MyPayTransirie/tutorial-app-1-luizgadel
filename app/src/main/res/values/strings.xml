@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">DemoMyLaundry</string>
+    <string name="cadastro_bt_web">Ler Arquivo Web</string>
+    <string name="cadastro_bt_manual">Digitar Dados</string>
+    <string name="cadastro_input_nome_fantasia">Nome Fantasia</string>
+    <string name="cadastro_input_telefone">Telefone</string>
+    <string name="cadastro_input_cnpj">CNPJ</string>
+    <string name="cadastro_input_endereco">Endereço</string>
+    <string name="cadastro_bt_baixar_web">Baixar</string>
+    <string name="cadastro_bt_cadastrar">Cadastrar</string>
+    <string name="abrir_caixa_input">Saldo Atual</string>
+    <string name="abrir_caixa_bt">Salvar</string>
+    <string name="dashboard_hoje">Hoje</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="receber">Receber</string>
+    <string name="entregar">Entregar</string>
+    <string name="fechar_caixa">Fechar Caixa</string>
+    <string name="total_dia">Total Dia</string>
+    <string name="total_mes">Total Mês</string>
+    <string name="numero_clientes"># Clientes:</string>
+    <string name="pgto_credito">Pagtos. Credito</string>
+    <string name="pgto_debito">Pagtos. Debito</string>
+    <string name="pgto_dinheiro">Pagtos. Dinheiro</string>
+    <string name="caixa_atual">Caixa</string>
+    <string name="title_activity_teste">TesteActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="imprimir">Imprimir</string>
+    <string name="voltar">Voltar</string>
+    <string name="sair">Sair</string>
+    <string name="fechamento">Fechamento</string>
+    <string name="title_imprimindo">Imprimindo</string>
+    <string name="msg_impressao_iniciada">Impressão Iniciada!</string>
+    <string name="arquivo_baixado_title">Ler Web</string>
+    <string name="arquivo_baixado_msg">Arquivo Baixado com Sucesso!</string>
+    <string name="inicializacao">Inicialização</string>
+    <string name="caixa">Caixa</string>
+    <string name="caixa_fechado">O caixa foi fechado</string>
+
+    <string-array name="tipos_servico">
+        <item>Selecione</item>
+        <item>Lavagem Simples (kg)</item>
+        <item>Lavagem Especial</item>
+        <item>Engomar</item>
+    </string-array>
+</resources>
