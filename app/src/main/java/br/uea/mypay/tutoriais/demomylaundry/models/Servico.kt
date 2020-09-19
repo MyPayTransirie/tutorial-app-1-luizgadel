@@ -8,32 +8,54 @@ abstract class Servico(
     var preco: Float
 )
 
-// lavagem por peso
+// furo simples
 
-class LavagemSimplesKg(
+class FuroSimples(
     id: Int,
-    preco: Float,
-    kilos: Int, // <<--- específico
-    observacao: String
+    observacao: String,
+    preco: Float
 ) : Servico(
     id,
-    nome = "Lavagem Simples", // <<--- configura nome aqui, mas virá do banco no futuro
+    nome = "Furo Simples", // <<--- configura nome aqui, mas virá do banco no futuro
     observacao, preco
 ) {
 }
 
-class LavagemEspecial(
-    id: Int,
-    var peca: Peca, // <<--- específico
-    preco: Float,
-    observacao: String
-) : Servico(id, nome = "(${peca.genero}) Camisa", observacao, preco)
-
-class Engomar(
+class FuroVulcanizado(
     id: Int,
     observacao: String,
     preco: Float
-) : Servico(id, nome = "Engomar", observacao, preco)
+) : Servico(id, nome = "Furo Vulcanizado", observacao, preco)
+
+class TrocaPneu(
+    id: Int,
+    observacao: String,
+    preco: Float
+) : Servico(id, nome = "Troca de Pneu", observacao, preco)
+
+class Desamassamento(
+    id: Int,
+    observacao: String,
+    preco: Float
+) : Servico(id, nome = "Desamassamento de roda de ferro", observacao, preco)
+
+class Recauchutagem(
+    id: Int,
+    observacao: String,
+    preco: Float
+) : Servico(id, nome = "Recauchutagem", observacao, preco)
+
+class TrocaValvula(
+    id: Int,
+    observacao: String,
+    preco: Float
+) : Servico(id, nome = "Troca de válvula de calibragem", observacao, preco)
+
+class Calibragem(
+    id: Int,
+    observacao: String,
+    preco: Float
+) : Servico(id, nome = "Calibragem", observacao, preco)
 
 // -----------------------------------------------
 // nome completo
@@ -46,13 +68,3 @@ enum class Genero(val abreviacao: String) {
 
     override fun toString(): String = abreviacao
 }
-
-enum class PecaTipo { Camisa, Vestido, Saia, Bermuda }
-enum class PecaSubTipo { Social, Esporte, Longo, Curto }
-
-class Peca(
-    var id: Int,
-    var genero: Genero,
-    var tipoPeca: PecaTipo,
-    var pecaSubTipo: PecaSubTipo
-)

@@ -10,8 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.InicializacaoActivity"></activity>
-        <activity android:name=".activities.TabelaPrecosGeralActivity" />
         <activity android:name=".activities.FecharCaixaActivity" />
+        <activity android:name=".activities.NovoPedidoActivity"/>
+        <activity android:name=".activities.ResumoPedidoActivity"
+            android:parentActivityName=".activities.NovoPedidoActivity"/>
         <activity android:name=".activities.AlterarPrecosActivity" />
         <activity android:name=".activities.AbrirCaixaActivity" />
         <activity android:name=".activities.MainActivity" />

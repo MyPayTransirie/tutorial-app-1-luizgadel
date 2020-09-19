@@ -12,22 +12,11 @@ import kotlinx.android.synthetic.main.activity_tabela_precos.*
 
 class AlterarPrecosActivity : AppCompatActivity() {
     var servicoListDatabase: ArrayList<Servico> = arrayListOf(
-        LavagemSimplesKg(0, 2.0f, 1, ""),
-        //-------------------------
-        LavagemEspecial(1,
-            Peca(0, Genero.MASCULINO, PecaTipo.Camisa, PecaSubTipo.Esporte),
-            5.0f,
-            ""),
-        //-------------------------
-        LavagemEspecial(1,
-        Peca(0, Genero.FEMININO, PecaTipo.Camisa, PecaSubTipo.Social),
-        7.0f,
-        ""),
-        //---------------
-        Engomar(1, "", 15.0f),
-        LavagemSimplesKg(0, 2.0f, 1, ""),
-        //-------------------------
-        )
+        TrocaPneu(0,"",20.0f),
+        FuroSimples(0, "", 20.0f),
+        TrocaValvula(0,   "", 10.0f),
+        FuroVulcanizado(0, "",30.0f),
+    )
 
     var servicoList: ArrayList<Servico> = arrayListOf<Servico>()
 
@@ -57,14 +46,20 @@ class AlterarPrecosActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when(position) {
-                    1 -> {
-                        servicoList =
-                            ArrayList(servicoListDatabase.filter { it is LavagemSimplesKg })
-                    }
+                    1 ->
+                        servicoList = ArrayList(servicoListDatabase.filter { it is FuroSimples })
                     2 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is LavagemEspecial })
+                        servicoList = ArrayList(servicoListDatabase.filter { it is FuroVulcanizado })
                     3 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is Engomar })
+                        servicoList = ArrayList(servicoListDatabase.filter { it is TrocaPneu })
+                    4 ->
+                        servicoList = ArrayList(servicoListDatabase.filter { it is TrocaValvula })
+                    5 ->
+                        servicoList = ArrayList(servicoListDatabase.filter { it is Recauchutagem })
+                    6 ->
+                        servicoList = ArrayList(servicoListDatabase.filter { it is Desamassamento })
+                    7 ->
+                        servicoList = ArrayList(servicoListDatabase.filter { it is Calibragem})
                 }
                 adapterTabelaPrecos.notifyDataSetChanged()
                 adapterTabelaPrecos = TabelaPrecosAdapter(this@AlterarPrecosActivity, servicoList)

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DemoMyLaundry</string>
+    <string name="app_name">DemoMy Tire</string>
     <string name="cadastro_bt_web">Ler Arquivo Web</string>
     <string name="cadastro_bt_manual">Digitar Dados</string>
     <string name="cadastro_input_nome_fantasia">Nome Fantasia</string>
@@ -24,6 +24,14 @@
     <string name="pgto_dinheiro">Pagtos. Dinheiro</string>
     <string name="caixa_atual">Caixa</string>
     <string name="title_activity_teste">TesteActivity</string>
+    <string name="servico">Serviço</string>
+    <string name="receber_pedido">Receber Pedido</string>
+    <string name="bt_finalizar_pedido">Finalizar Pedido</string>
+    <string name="exemplo_observacao">Remendo</string>
+    <string name="exemplo_preco">R$ 20</string>
+    <string name="bt_incluir">Incluir</string>
+    <string name="welcome_resumo">Bem vindo ao resumo!</string>
+    <string name="resumo_pedido">Resumo do Pedido</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -45,8 +53,12 @@
 
     <string-array name="tipos_servico">
         <item>Selecione</item>
-        <item>Lavagem Simples (kg)</item>
-        <item>Lavagem Especial</item>
-        <item>Engomar</item>
+        <item>Furo Simples (kg)</item>
+        <item>Furo Vulcanizado</item>
+        <item>Troca de pneu</item>
+        <item>Desamassamento da roda de ferro</item>
+        <item>Recauchutagem</item>
+        <item>Troca de válvula de calibragem</item>
+        <item>Calibragem</item>
     </string-array>
 </resources>
