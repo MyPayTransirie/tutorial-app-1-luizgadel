@@ -4,17 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.uea.mypay.tutoriais.demomylaundry.R
-import kotlinx.android.synthetic.main.cadastro_main.*
+import kotlinx.android.synthetic.main.activity_inicializacao.*
 
 class InicializacaoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicializacao)
-        btAlterarPreco.setOnClickListener {
+        inicializacao_btAlterarPreco.setOnClickListener {
             val alterarPrecoIntent = Intent(this, AlterarPrecosActivity::class.java)
             startActivityForResult(alterarPrecoIntent, 1)
         }
-        btAbrirCaixa.setOnClickListener {
+        inicializacao_btAbrirCaixa.setOnClickListener {
             startActivity(Intent(this, AbrirCaixaActivity::class.java))
             finish()
         }

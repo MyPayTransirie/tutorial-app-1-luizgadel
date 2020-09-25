@@ -13,19 +13,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setTitle("Serviços")
 
-        btReceber.setOnClickListener {
+        main_btReceber.setOnClickListener {
             startActivity(Intent(this, NovoPedidoActivity::class.java))
         }
 
-        btSair.setOnClickListener {
+        main_btFecharCaixa.setOnClickListener {
+            startActivity(Intent(this, FecharCaixaActivity::class.java))
+        }
+
+        main_btSair.setOnClickListener {
             alertCaixaFechado {
                 startActivity(Intent(this, InicializacaoActivity::class.java))
                 finish()
             }
-        }
-
-        btFecharCaixa.setOnClickListener {
-            startActivity(Intent(this, FecharCaixaActivity::class.java))
         }
     }
 

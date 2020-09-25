@@ -17,7 +17,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/cadastro_input_nome_fantasia" />
+            android:hint="@string/input_nome_fantasia" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -28,7 +28,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/cadastro_input_endereco" />
+            android:hint="@string/input_endereco" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,7 +40,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/cadastro_input_telefone"
+            android:hint="@string/input_telefone"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,7 +52,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/cadastro_input_cnpj"
+            android:hint="@string/input_cnpj"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,5 +60,5 @@
         android:id="@+id/btCadastrarManual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cadastro_bt_cadastrar" />
+        android:text="@string/bt_cadastrar" />
 </LinearLayout>

@@ -1,21 +1,15 @@
 <resources>
     <string name="app_name">DemoMy Tire</string>
-    <string name="cadastro_bt_web">Ler Arquivo Web</string>
-    <string name="cadastro_bt_manual">Digitar Dados</string>
-    <string name="cadastro_input_nome_fantasia">Nome Fantasia</string>
-    <string name="cadastro_input_telefone">Telefone</string>
-    <string name="cadastro_input_cnpj">CNPJ</string>
-    <string name="cadastro_input_endereco">Endereço</string>
-    <string name="cadastro_bt_baixar_web">Baixar</string>
-    <string name="cadastro_bt_cadastrar">Cadastrar</string>
+
     <string name="abrir_caixa_input">Saldo Atual</string>
     <string name="abrir_caixa_bt">Salvar</string>
-    <string name="dashboard_hoje">Hoje</string>
-    <string name="sim">Sim</string>
-    <string name="nao">Não</string>
-    <string name="receber">Receber</string>
-    <string name="entregar">Entregar</string>
-    <string name="fechar_caixa">Fechar Caixa</string>
+
+    <string name="input_nome_fantasia">Nome Fantasia</string>
+    <string name="input_telefone">Telefone</string>
+    <string name="input_cnpj">CNPJ</string>
+    <string name="input_endereco">Endereço</string>
+    <string name="bt_cadastrar">Cadastrar</string>
+
     <string name="total_dia">Total Dia</string>
     <string name="total_mes">Total Mês</string>
     <string name="numero_clientes"># Clientes:</string>
@@ -23,15 +17,44 @@
     <string name="pgto_debito">Pagtos. Debito</string>
     <string name="pgto_dinheiro">Pagtos. Dinheiro</string>
     <string name="caixa_atual">Caixa</string>
+    <string name="pagto_valor_exemplo">000</string>
+    <string name="imprimir">Imprimir</string>
+    <string name="voltar">Voltar</string>
+    <string name="sair">Sair</string>
+
+    <string name="inicializacao">Inicialização</string>
+    <string name="alterar_preco">Alterar tabela preço</string>
+    <string name="abrir_caixa">Abrir Caixa</string>
+
+    <string name="link_arquivo">Link para arquivo</string>
+    <string name="bt_baixar_web">Baixar</string>
+
+    <string name="receber">Receber</string>
+    <string name="entregar">Entregar</string>
+    <string name="fechar_caixa">Fechar Caixa</string>
+
+    <string name="cadastro_empresa">Cadastro de Empresa</string>
+    <string name="cadastro_bt_web">Ler Arquivo Web</string>
+    <string name="cadastro_bt_manual">Digitar Dados</string>
+
+    <string name="bt_salvar_alteracoes">Salvar</string>
+
+    <string name="dashboard_hoje">Hoje</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
     <string name="title_activity_teste">TesteActivity</string>
+
     <string name="servico">Serviço</string>
     <string name="receber_pedido">Receber Pedido</string>
     <string name="bt_finalizar_pedido">Finalizar Pedido</string>
+
     <string name="exemplo_observacao">Remendo</string>
     <string name="exemplo_preco">R$ 20</string>
     <string name="bt_incluir">Incluir</string>
+
     <string name="welcome_resumo">Bem vindo ao resumo!</string>
     <string name="resumo_pedido">Resumo do Pedido</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -39,26 +62,26 @@
     <string name="previous">Previous</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="imprimir">Imprimir</string>
-    <string name="voltar">Voltar</string>
-    <string name="sair">Sair</string>
     <string name="fechamento">Fechamento</string>
     <string name="title_imprimindo">Imprimindo</string>
     <string name="msg_impressao_iniciada">Impressão Iniciada!</string>
     <string name="arquivo_baixado_title">Ler Web</string>
     <string name="arquivo_baixado_msg">Arquivo Baixado com Sucesso!</string>
-    <string name="inicializacao">Inicialização</string>
+
     <string name="caixa">Caixa</string>
     <string name="caixa_fechado">O caixa foi fechado</string>
+    <string name="lista_servicos">Lista de Servicos</string>
 
     <string-array name="tipos_servico">
         <item>Selecione</item>
-        <item>Furo Simples (kg)</item>
-        <item>Furo Vulcanizado</item>
+        <item>Furo</item>
         <item>Troca de pneu</item>
         <item>Desamassamento da roda de ferro</item>
         <item>Recauchutagem</item>
         <item>Troca de válvula de calibragem</item>
         <item>Calibragem</item>
     </string-array>
+
+    <string name="servico_bt">?</string>
+    <string name="tabela_precos">Tabela de Preços</string>
 </resources>

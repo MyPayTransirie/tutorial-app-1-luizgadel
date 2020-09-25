@@ -20,25 +20,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btAlterarPreco"
+        android:id="@+id/inicializacao_btAlterarPreco"
         android:layout_width="@dimen/cadastro_bt_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Alterar Tabela Preço"
+        android:text="@string/alterar_preco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/btAbrirCaixa"
+        android:id="@+id/inicializacao_btAbrirCaixa"
         android:layout_width="@dimen/cadastro_bt_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Abrir Caixa"
+        android:text="@string/abrir_caixa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btAlterarPreco" />
+        app:layout_constraintTop_toBottomOf="@+id/inicializacao_btAlterarPreco" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

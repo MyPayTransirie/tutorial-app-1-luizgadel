@@ -17,14 +17,13 @@
             android:id="@+id/txtArquivoWeb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Link para Arquivo"
+            android:hint="@string/link_arquivo"
             android:inputType="textUri" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btLerConfigWeb"
+        android:id="@+id/cadastroWeb_btBaixar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/cadastro_bt_baixar_web" />
+        android:text="@string/bt_baixar_web" />
 </LinearLayout>

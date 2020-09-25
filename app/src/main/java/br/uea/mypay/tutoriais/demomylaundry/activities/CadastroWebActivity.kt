@@ -5,17 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import br.uea.mypay.tutoriais.demomylaundry.R
-import kotlinx.android.synthetic.main.activity_ler_web.*
+import kotlinx.android.synthetic.main.activity_cadastro_web.*
 
 class CadastroWebActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ler_web)
+        setContentView(R.layout.activity_cadastro_web)
         supportActionBar?.title = "Cadastro"
         supportActionBar?.subtitle = "Arquivo Web"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        btLerConfigWeb.setOnClickListener {
+        cadastroWeb_btBaixar.setOnClickListener {
             alertBaixado {
                 startActivity(Intent(this, AbrirCaixaActivity::class.java))
             }

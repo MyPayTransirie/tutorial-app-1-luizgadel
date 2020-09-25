@@ -12,7 +12,7 @@ class AbrirCaixaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_abrir_caixa)
         setTitle("Abrir Caixa")
 
-        btAbrirCaixa.setOnClickListener {
+        abrirCaixa_btSalvar.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }

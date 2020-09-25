@@ -7,24 +7,27 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import br.uea.mypay.tutoriais.demomylaundry.R
+import br.uea.mypay.tutoriais.demomylaundry.adapters.TabelaPedidoAdapter
 import br.uea.mypay.tutoriais.demomylaundry.models.*
 import kotlinx.android.synthetic.main.activity_novo_pedido.*
-import kotlinx.android.synthetic.main.activity_novo_pedido.spnTipoGeral
-import kotlinx.android.synthetic.main.activity_tabela_precos.*
 
 class NovoPedidoActivity : AppCompatActivity() {
+    /*var pedido: Pedido = Pedido(null, 1)*/
+
     var servicoListDB: ArrayList<Servico> = arrayListOf(
-        TrocaPneu(0, "Aro 20", 55.90f),
-        TrocaPneu(1, "Aro 14", 69.90f),
-        TrocaPneu(2, "Aro 17", 75.0f),
-        TrocaPneu(3, "Aro 18", 69.90f),
-        TrocaPneu(4, "Aro 19", 72.90f),
-        TrocaPneu(5, "Aro 21", 79.90f),
-        FuroSimples(0, "Macarrão", 20.0f),
-        FuroSimples(1, "Remendo", 30.0f),
-        FuroSimples(2, "Plugue", 35.0f),
-        FuroVulcanizado(0, "Vulcanização", 30.0f),
-        TrocaValvula(0, "Troca de Válvula de Calibragem", 10.0f),
+        Servico(0, TipoServico.FURO, 35.0f, "Plugue"),
+        Servico(1, TipoServico.FURO, 30.0f, "Remendo"),
+        Servico(2, TipoServico.FURO, 20.0f, "Macarrão"),
+        Servico(3, TipoServico.FURO, 30.0f, "Vulcanização"),
+
+        Servico(0, TipoServico.TROCA_PNEU, 69.90f, "Aro 14"),
+        Servico(1, TipoServico.TROCA_PNEU, 75.0f, "Aro 17"),
+        Servico(2, TipoServico.TROCA_PNEU, 55.90f, "Aro 20"),
+        Servico(3, TipoServico.TROCA_PNEU, 69.90f, "Aro 18"),
+        Servico(4, TipoServico.TROCA_PNEU, 72.90f, "Aro 19"),
+        Servico(5, TipoServico.TROCA_PNEU, 79.90f, "Aro 21"),
+
+        Servico(0, TipoServico.TROCA_VALVULA, 10.0f, "Troca de Válvula de Calibragem")
     )
 
     var servicoList: ArrayList<Servico> = arrayListOf<Servico>()
@@ -37,15 +40,17 @@ class NovoPedidoActivity : AppCompatActivity() {
         setTitle(R.string.receber_pedido)
 
         adapterTabelaPedido = TabelaPedidoAdapter(this, servicoList)
+        novoPedido_lv.adapter = adapterTabelaPedido
 
-        btFinalizarPedido.setOnClickListener {
+        novoPedido_btFinalizarPedido.setOnClickListener {
             startActivity(Intent(this, ResumoPedidoActivity::class.java))
+            finish()
         }
         setSpinner()
     }
 
     private fun setSpinner() {
-        spnTipoGeral.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        novoPedido_spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -53,17 +58,16 @@ class NovoPedidoActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when(position) {
-                    1 -> servicoList = ArrayList(servicoListDB.filter { it is FuroSimples })
-                    2 -> servicoList = ArrayList(servicoListDB.filter { it is FuroVulcanizado })
-                    3 -> servicoList = ArrayList(servicoListDB.filter { it is TrocaPneu })
-                    4 -> servicoList = ArrayList(servicoListDB.filter { it is TrocaValvula })
-                    5 -> servicoList = ArrayList(servicoListDB.filter { it is Recauchutagem })
-                    6 -> servicoList = ArrayList(servicoListDB.filter { it is Desamassamento })
-                    7 -> servicoList = ArrayList(servicoListDB.filter { it is Calibragem })
+                    1 -> servicoList = ArrayList(servicoListDB.filter { it.tipoServico == TipoServico.FURO })
+                    2 -> servicoList = ArrayList(servicoListDB.filter { it.tipoServico == TipoServico.TROCA_PNEU })
+                    3 -> servicoList = ArrayList(servicoListDB.filter { it.tipoServico == TipoServico.TROCA_VALVULA })
+                    4 -> servicoList = ArrayList(servicoListDB.filter { it.tipoServico == TipoServico.RECAUCHUTAGEM })
+                    5 -> servicoList = ArrayList(servicoListDB.filter { it.tipoServico == TipoServico.DESAMASSAMENTO })
+                    6 -> servicoList = ArrayList(servicoListDB.filter { it.tipoServico == TipoServico.CALIBRAGEM })
                 }
                 adapterTabelaPedido.notifyDataSetChanged()
                 adapterTabelaPedido = TabelaPedidoAdapter(this@NovoPedidoActivity, servicoList)
-                lvServicosDisponiveis.adapter = adapterTabelaPedido
+                novoPedido_lv.adapter = adapterTabelaPedido
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -75,7 +79,7 @@ class NovoPedidoActivity : AppCompatActivity() {
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spnTipoGeral.adapter = adapter
+            novoPedido_spn.adapter = adapter
         }
     }
 }

@@ -7,52 +7,52 @@
     tools:context=".activities.MainActivity">
 
     <Button
-        android:id="@+id/btReceber"
+        android:id="@+id/main_btReceber"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="@string/receber"
-        app:layout_constraintBottom_toTopOf="@+id/btEntregar"
+        app:layout_constraintBottom_toTopOf="@+id/main_btEntregar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btFecharCaixa"
+        android:id="@+id/main_btEntregar"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/entregar"
+        app:layout_constraintBottom_toTopOf="@+id/main_gd"
+        app:layout_constraintEnd_toEndOf="@+id/main_btReceber"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/main_btReceber"
+        app:layout_constraintTop_toBottomOf="@+id/main_btReceber" />
+
+    <Button
+        android:id="@+id/main_btFecharCaixa"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/fechar_caixa"
-        app:layout_constraintEnd_toStartOf="@+id/btSair"
+        app:layout_constraintEnd_toStartOf="@+id/main_btSair"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/main_gd" />
 
     <Button
-        android:id="@+id/btSair"
+        android:id="@+id/main_btSair"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="@string/sair"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btFecharCaixa"
+        app:layout_constraintBottom_toBottomOf="@+id/main_btFecharCaixa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btFecharCaixa"
-        app:layout_constraintTop_toTopOf="@+id/btFecharCaixa" />
-
-    <Button
-        android:id="@+id/btEntregar"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="@string/entregar"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="@+id/btReceber"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btReceber"
-        app:layout_constraintTop_toBottomOf="@+id/btReceber" />
+        app:layout_constraintStart_toEndOf="@+id/main_btFecharCaixa"
+        app:layout_constraintTop_toTopOf="@+id/main_btFecharCaixa" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/main_gd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

@@ -18,44 +18,42 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/txtLavagemSimples2"
-            android:layout_width="match_parent"
+            android:id="@+id/tabelaPrecos_tvServico"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="2"
-            android:text="Tipo de Serviço" />
+            android:layout_marginStart="16dp"
+            android:text="@string/servico" />
 
         <Spinner
-            android:id="@+id/spnTipoGeral"
+            android:id="@+id/tabelaPrecos_spn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <ListView
-        android:id="@+id/lvListaServicoPreco"
+        android:id="@+id/tabelaPrecos_lvServico"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintBottom_toTopOf="@+id/tabelaPrecos_gd"
         app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
     </ListView>
 
     <Button
-        android:id="@+id/btSalvar"
+        android:id="@+id/tabelaPrecos_btSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salvar"
+        android:text="@string/bt_salvar_alteracoes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/tabelaPrecos_gd"
         app:layout_constraintVertical_bias="0.182" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/tabelaPrecos_gd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

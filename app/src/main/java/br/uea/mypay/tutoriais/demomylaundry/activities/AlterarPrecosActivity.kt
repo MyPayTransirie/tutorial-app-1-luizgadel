@@ -7,30 +7,32 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import br.uea.mypay.tutoriais.demomylaundry.R
+import br.uea.mypay.tutoriais.demomylaundry.adapters.TabelaPrecosAdapter
 import br.uea.mypay.tutoriais.demomylaundry.models.*
 import kotlinx.android.synthetic.main.activity_tabela_precos.*
 
 class AlterarPrecosActivity : AppCompatActivity() {
-    var servicoListDatabase: ArrayList<Servico> = arrayListOf(
-        TrocaPneu(0,"",20.0f),
-        FuroSimples(0, "", 20.0f),
-        TrocaValvula(0,   "", 10.0f),
-        FuroVulcanizado(0, "",30.0f),
+
+    var servicoListDatabase: List<Servico> = arrayListOf(
+        Servico(0, TipoServico.FURO, 20.0f, "Furo simples"),
+        Servico(1, TipoServico.FURO,30.0f, "Vulcanização"),
+        Servico(0,TipoServico.TROCA_PNEU, 20.0f, "Troca de Pneu"),
+        Servico(0, TipoServico.TROCA_VALVULA, 10.0f, "Troca da válvula de calibragem"),
     )
 
-    var servicoList: ArrayList<Servico> = arrayListOf<Servico>()
+    var servicoList: MutableList<Servico> = arrayListOf<Servico>()
 
     lateinit var adapterTabelaPrecos: TabelaPrecosAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabela_precos)
-        setTitle("Tabela de Preços")
+        setTitle(R.string.tabela_precos)
 
         adapterTabelaPrecos = TabelaPrecosAdapter(this, servicoList)
-        lvListaServicoPreco.adapter = adapterTabelaPrecos
+        tabelaPrecos_lvServico.adapter = adapterTabelaPrecos
 
-        btSalvar.setOnClickListener {
+        tabelaPrecos_btSalvar.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
@@ -38,7 +40,7 @@ class AlterarPrecosActivity : AppCompatActivity() {
     }
 
     private fun setSpinner() {
-        spnTipoGeral.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        tabelaPrecos_spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View,
@@ -46,29 +48,19 @@ class AlterarPrecosActivity : AppCompatActivity() {
                 id: Long
             ) {
                 when(position) {
-                    1 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is FuroSimples })
-                    2 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is FuroVulcanizado })
-                    3 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is TrocaPneu })
-                    4 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is TrocaValvula })
-                    5 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is Recauchutagem })
-                    6 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is Desamassamento })
-                    7 ->
-                        servicoList = ArrayList(servicoListDatabase.filter { it is Calibragem})
+                    1 -> servicoList = ArrayList(servicoListDatabase.filter { it.tipoServico == TipoServico.FURO })
+                    2 -> servicoList = ArrayList(servicoListDatabase.filter { it.tipoServico == TipoServico.TROCA_PNEU })
+                    3 -> servicoList = ArrayList(servicoListDatabase.filter { it.tipoServico == TipoServico.TROCA_VALVULA })
+                    4 -> servicoList = ArrayList(servicoListDatabase.filter { it.tipoServico == TipoServico.RECAUCHUTAGEM })
+                    5 -> servicoList = ArrayList(servicoListDatabase.filter { it.tipoServico == TipoServico.DESAMASSAMENTO })
+                    6 -> servicoList = ArrayList(servicoListDatabase.filter { it.tipoServico == TipoServico.CALIBRAGEM })
                 }
                 adapterTabelaPrecos.notifyDataSetChanged()
                 adapterTabelaPrecos = TabelaPrecosAdapter(this@AlterarPrecosActivity, servicoList)
-                lvListaServicoPreco.adapter = adapterTabelaPrecos
-
+                tabelaPrecos_lvServico.adapter = adapterTabelaPrecos
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
         // Cria um ArrayAdapter usando um string array e um spinner layout padrão
@@ -80,7 +72,11 @@ class AlterarPrecosActivity : AppCompatActivity() {
             // Especifica o layout a ser usado para a lista de opções
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Aplica o adapter ao spinner
-            spnTipoGeral.adapter = adapter
+            tabelaPrecos_spn.adapter = adapter
         }
+    }
+
+    private fun updateDatabase() {
+
     }
 }

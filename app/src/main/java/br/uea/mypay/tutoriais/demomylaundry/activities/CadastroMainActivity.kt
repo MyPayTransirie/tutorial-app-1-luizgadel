@@ -6,14 +6,14 @@ import android.os.Bundle
 import br.uea.mypay.tutoriais.demomylaundry.R
 import kotlinx.android.synthetic.main.cadastro_main.*
 
-class CadastroActivity : AppCompatActivity() {
+class CadastroMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.cadastro_main)
-        btAlterarPreco.setOnClickListener {
+        cadastroMain_btWeb.setOnClickListener {
             startActivity(Intent(applicationContext, CadastroWebActivity::class.java))
         }
-        btAbrirCaixa.setOnClickListener {
+        cadastroMain_btDigitarDados.setOnClickListener {
             startActivity(Intent(applicationContext, CadastroManualActivity::class.java))
         }
     }

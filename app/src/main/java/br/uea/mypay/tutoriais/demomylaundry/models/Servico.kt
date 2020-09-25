@@ -1,61 +1,23 @@
 package br.uea.mypay.tutoriais.demomylaundry.models
 
+import br.uea.mypay.tutoriais.demomylaundry.R
+
 // abstract = não é possível instanciar
-abstract class Servico(
+class Servico(
     val id: Int,
-    var nome: String,
-    var observacao: String,
-    var preco: Float
+    val tipoServico: TipoServico,
+    var preco: Float,
+    var descricao: String
 )
 
-// furo simples
-
-class FuroSimples(
-    id: Int,
-    observacao: String,
-    preco: Float
-) : Servico(
-    id,
-    nome = "Furo Simples", // <<--- configura nome aqui, mas virá do banco no futuro
-    observacao, preco
-) {
+enum class TipoServico(val descricao: String) {
+    FURO("Furo"),
+    TROCA_PNEU("Troca de Pneu"),
+    DESAMASSAMENTO("Desamassamento da roda de ferro"),
+    RECAUCHUTAGEM("Recauchutagem"),
+    TROCA_VALVULA("Troca de válvula de calibragem"),
+    CALIBRAGEM("Calibragem")
 }
-
-class FuroVulcanizado(
-    id: Int,
-    observacao: String,
-    preco: Float
-) : Servico(id, nome = "Furo Vulcanizado", observacao, preco)
-
-class TrocaPneu(
-    id: Int,
-    observacao: String,
-    preco: Float
-) : Servico(id, nome = "Troca de Pneu", observacao, preco)
-
-class Desamassamento(
-    id: Int,
-    observacao: String,
-    preco: Float
-) : Servico(id, nome = "Desamassamento de roda de ferro", observacao, preco)
-
-class Recauchutagem(
-    id: Int,
-    observacao: String,
-    preco: Float
-) : Servico(id, nome = "Recauchutagem", observacao, preco)
-
-class TrocaValvula(
-    id: Int,
-    observacao: String,
-    preco: Float
-) : Servico(id, nome = "Troca de válvula de calibragem", observacao, preco)
-
-class Calibragem(
-    id: Int,
-    observacao: String,
-    preco: Float
-) : Servico(id, nome = "Calibragem", observacao, preco)
 
 // -----------------------------------------------
 // nome completo
