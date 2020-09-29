@@ -12,6 +12,7 @@ import android.widget.BaseAdapter
 import android.widget.EditText
 import android.widget.Toast
 import br.uea.mypay.tutoriais.demomylaundry.R
+import br.uea.mypay.tutoriais.demomylaundry.activities.NovoPedidoActivity
 import br.uea.mypay.tutoriais.demomylaundry.models.ItemPedido
 import br.uea.mypay.tutoriais.demomylaundry.models.Pedido
 import br.uea.mypay.tutoriais.demomylaundry.models.Servico
@@ -65,7 +66,8 @@ class TabelaPedidoAdapter(
             builder.setView(input)
             builder.setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
                 try {
-                    val itemPedido = ItemPedido(servico, "", input.text.toString().toInt())
+                    val item = ItemPedido(servico, "", input.text.toString().toInt())
+                    NovoPedidoActivity.infoPedido.listaItens.add(item)
 
                 } catch (e: NumberFormatException) {
                     Toast.makeText(ctx, "Informe um valor", Toast.LENGTH_SHORT).show()

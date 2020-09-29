@@ -2,6 +2,7 @@ package br.uea.mypay.tutoriais.demomylaundry.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -9,10 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import br.uea.mypay.tutoriais.demomylaundry.R
 import br.uea.mypay.tutoriais.demomylaundry.adapters.TabelaPedidoAdapter
 import br.uea.mypay.tutoriais.demomylaundry.models.*
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_novo_pedido.*
 
 class NovoPedidoActivity : AppCompatActivity() {
-    /*var pedido: Pedido = Pedido(null, 1)*/
 
     var servicoListDB: ArrayList<Servico> = arrayListOf(
         Servico(0, TipoServico.FURO, 35.0f, "Plugue"),
@@ -34,6 +35,15 @@ class NovoPedidoActivity : AppCompatActivity() {
 
     lateinit var adapterTabelaPedido: TabelaPedidoAdapter
 
+    companion object {
+        private var nextId = 0
+    }
+
+    object infoPedido {
+        lateinit var listaItens: MutableList<ItemPedido>
+        lateinit var pedido: Pedido
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_novo_pedido)
@@ -43,10 +53,18 @@ class NovoPedidoActivity : AppCompatActivity() {
         novoPedido_lv.adapter = adapterTabelaPedido
 
         novoPedido_btFinalizarPedido.setOnClickListener {
+            val ggson = Gson()
+            val pedidoJson = ggson.toJson(infoPedido.pedido)
+            Log.println(Log.INFO, "Status do Pedido: ", pedidoJson)
+
             startActivity(Intent(this, ResumoPedidoActivity::class.java))
             finish()
         }
         setSpinner()
+
+        infoPedido.listaItens = mutableListOf()
+        infoPedido.pedido = Pedido(infoPedido.listaItens, nextId)
+        nextId += 1
     }
 
     private fun setSpinner() {
