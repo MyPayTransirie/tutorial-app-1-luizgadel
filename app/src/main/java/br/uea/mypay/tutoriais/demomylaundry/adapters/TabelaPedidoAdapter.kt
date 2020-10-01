@@ -54,7 +54,7 @@ class TabelaPedidoAdapter(
         holder.tvDescricao.text = servico.descricao
         holder.tvPreco.text = "R$ " + servico.preco.toString()
         holder.btIncluir.setOnClickListener {
-            val qtdServico = 1
+            var qtdServico = 1
             val builder: AlertDialog.Builder = AlertDialog.Builder(ctx)
             builder.setTitle("Quantidade")
             builder.setMessage("Digite a quantidade para esse serviço")
@@ -66,10 +66,11 @@ class TabelaPedidoAdapter(
             builder.setView(input)
             builder.setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
                 try {
-                    val item = ItemPedido(servico, "", input.text.toString().toInt())
+                    qtdServico = input.text.toString().toInt()
+                    val item = ItemPedido(servico, "", qtdServico)
                     NovoPedidoActivity.infoPedido.listaItens.add(item)
-
-                } catch (e: NumberFormatException) {
+                    NovoPedidoActivity.numIncluidos++
+                } catch (e: Exception) {
                     Toast.makeText(ctx, "Informe um valor", Toast.LENGTH_SHORT).show()
                 }
                 notifyDataSetChanged()

@@ -14,7 +14,6 @@ import br.uea.mypay.tutoriais.demomylaundry.models.Servico
 import br.uea.mypay.tutoriais.demomylaundry.models.TipoServico
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_fechar_pedido.*
-import java.lang.ClassCastException
 import java.lang.Exception
 
 class FecharPedidoActivity : AppCompatActivity() {
@@ -39,9 +38,7 @@ class FecharPedidoActivity : AppCompatActivity() {
             val editor = pedidosPreference.edit()
             editor.putString("pedido2", "")
         }
-
     }
-
 
     override fun onStop() {
         super.onStop()
@@ -52,7 +49,7 @@ class FecharPedidoActivity : AppCompatActivity() {
             // instancia de servicos
             val servicoFurar = Servico(15, TipoServico.FURO, 10f, "Remendo")
             val servicoTrocaPneu = Servico(10, TipoServico.TROCA_PNEU, 10f, "Aro 17")
-            val servicoCalibragem = Servico(5, TipoServico.CALIBRAGEM, 10f, "-")
+            val servicoCalibragem = Servico(5, TipoServico.CALIBRAGEM, 10f, "")
 
             //compor lista de itens, instanciando-os
             val listaItens = listOf(

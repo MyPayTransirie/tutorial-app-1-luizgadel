@@ -14,21 +14,17 @@
         <activity android:name=".activities.ListaServicoActivity" />
         <activity android:name=".activities.InicializacaoActivity" />
         <activity android:name=".activities.FecharCaixaActivity" />
-        <activity
-            android:name=".activities.NovoPedidoActivity"
-            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.NovoPedidoActivity"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
         <activity
             android:name=".activities.ResumoPedidoActivity"
-            android:parentActivityName=".activities.NovoPedidoActivity" />
+            android:parentActivityName=".activities.NovoPedidoActivity">
+        </activity>
         <activity android:name=".activities.AlterarPrecosActivity">
         </activity>
         <activity android:name=".activities.AbrirCaixaActivity" />
         <activity android:name=".activities.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.CadastroManualActivity"

@@ -16,10 +16,10 @@ import kotlinx.android.synthetic.main.activity_novo_pedido.*
 class NovoPedidoActivity : AppCompatActivity() {
 
     var servicoListDB: ArrayList<Servico> = arrayListOf(
-        Servico(0, TipoServico.FURO, 35.0f, "Plugue"),
-        Servico(1, TipoServico.FURO, 30.0f, "Remendo"),
-        Servico(2, TipoServico.FURO, 20.0f, "Macarrão"),
-        Servico(3, TipoServico.FURO, 30.0f, "Vulcanização"),
+        Servico(0, TipoServico.FURO, 35.0f, "Plugues"),
+        Servico(1, TipoServico.FURO, 30.0f, "Remendos"),
+        Servico(2, TipoServico.FURO, 20.0f, "Macarrãos"),
+        Servico(3, TipoServico.FURO, 30.0f, "Vulcanizações"),
 
         Servico(0, TipoServico.TROCA_PNEU, 69.90f, "Aro 14"),
         Servico(1, TipoServico.TROCA_PNEU, 75.0f, "Aro 17"),
@@ -28,7 +28,7 @@ class NovoPedidoActivity : AppCompatActivity() {
         Servico(4, TipoServico.TROCA_PNEU, 72.90f, "Aro 19"),
         Servico(5, TipoServico.TROCA_PNEU, 79.90f, "Aro 21"),
 
-        Servico(0, TipoServico.TROCA_VALVULA, 10.0f, "Troca de Válvula de Calibragem")
+        Servico(0, TipoServico.TROCA_VALVULA, 10.0f, "Trocas de Válvula de Calibragem")
     )
 
     var servicoList: ArrayList<Servico> = arrayListOf<Servico>()
@@ -36,12 +36,12 @@ class NovoPedidoActivity : AppCompatActivity() {
     lateinit var adapterTabelaPedido: TabelaPedidoAdapter
 
     companion object {
-        private var nextId = 0
+        var numIncluidos = 0
     }
 
     object infoPedido {
         lateinit var listaItens: MutableList<ItemPedido>
-        lateinit var pedido: Pedido
+        var id: Int = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,18 +53,12 @@ class NovoPedidoActivity : AppCompatActivity() {
         novoPedido_lv.adapter = adapterTabelaPedido
 
         novoPedido_btFinalizarPedido.setOnClickListener {
-            val ggson = Gson()
-            val pedidoJson = ggson.toJson(infoPedido.pedido)
-            Log.println(Log.INFO, "Status do Pedido: ", pedidoJson)
-
             startActivity(Intent(this, ResumoPedidoActivity::class.java))
             finish()
         }
         setSpinner()
 
         infoPedido.listaItens = mutableListOf()
-        infoPedido.pedido = Pedido(infoPedido.listaItens, nextId)
-        nextId += 1
     }
 
     private fun setSpinner() {
@@ -86,6 +80,8 @@ class NovoPedidoActivity : AppCompatActivity() {
                 adapterTabelaPedido.notifyDataSetChanged()
                 adapterTabelaPedido = TabelaPedidoAdapter(this@NovoPedidoActivity, servicoList)
                 novoPedido_lv.adapter = adapterTabelaPedido
+
+                novoPedido_tvNumIncluidos.text = numIncluidos.toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}

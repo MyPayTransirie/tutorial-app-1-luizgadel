@@ -19,6 +19,8 @@ enum class TipoServico(val descricao: String) {
     CALIBRAGEM("Calibragem")
 }
 
+data class ItemPedido(val servico: Servico, val observacao: String, val quantidade: Int)
+
 // -----------------------------------------------
 // nome completo
 // enum class Genero { MASCULINO, FEMININO }

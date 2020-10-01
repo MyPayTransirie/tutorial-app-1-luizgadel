@@ -82,6 +82,17 @@
         <item>Calibragem</item>
     </string-array>
 
-    <string name="servico_bt">?</string>
+    <string name="servico_bt">(?)</string>
     <string name="tabela_precos">Tabela de Preços</string>
+    <string name="novo_pedido_num_servicos_incluidos">N°. de serviços incluídos:</string>
+
+    <string name="resumo_pedido_num_exemplo">Pedido #3</string>
+    <string name="resumo_pedido_pagar">Pagar</string>
+    <string name="resumo_pedido_total_exemplo">R$ 100</string>
+
+    <string name="item_pedido_qtd_exemplo">10</string>
+    <string name="item_pedido_times_symbol">x</string>
+    <string name="item_pedido_servico_exemplo">Remendos</string>
+    <string name="item_pedido_tipo_exemplo">(FURO)</string>
+    <string name="item_pedido_parcial_exemplo">R$ 30</string>
 </resources>

@@ -23,8 +23,8 @@ O objetivo desse tutorial é se familiarizar com alguns componentes básicos de 
 8. [x] Crie uma `data class` `ItemPedido` no mesmo arquivo `models/Pedido.kt` com "nome", "observacao" e "preco"
 9. [x] Mantenha um objeto `Pedido` na Activity `Novo Pedido`
 10. [x] Faça com que o "INCLUIR" abra um `Dialog`  pedindo a quantidade
-    [x] Inclua um novo `ItemPedido` preenchendo os campos com os valores do servico selecionado
+    - [x] Inclua um novo `ItemPedido` preenchendo os campos com os valores do servico selecionado
 11. [x] O botão "SALVAR" deve ser trocado por "FINALIZAR PEDIDO"
-     Crie a Activity `ResumoPedido` exibindo a lista de itens com o botão "PAGAR" que **não fará nada**
-    - Crie uma nova `ListView`, juntamente com um `PedidoAdapter` e implemente o que for necessário
+    - [x] Crie a Activity `ResumoPedido` exibindo a lista de itens com o botão "PAGAR" que **não fará nada**
+    - [x] Crie uma nova ~~ListView~~ RecyclerView, juntamente com um `PedidoAdapter` e implemente o que for necessário
 
