@@ -26,5 +26,5 @@ O objetivo desse tutorial é se familiarizar com alguns componentes básicos de 
     - [x] Inclua um novo `ItemPedido` preenchendo os campos com os valores do servico selecionado
 11. [x] O botão "SALVAR" deve ser trocado por "FINALIZAR PEDIDO"
     - [x] Crie a Activity `ResumoPedido` exibindo a lista de itens com o botão "PAGAR" que **não fará nada**
-    - [x] Crie uma nova ~~ListView~~ RecyclerView, juntamente com um `PedidoAdapter` e implemente o que for necessário
+    - [x] Crie uma nova ~~`ListView`~~ RecyclerView, juntamente com um ~~`PedidoAdapter`~~ `ItemPedidoAdapter`e implemente o que for necessário
 

@@ -1,16 +1,16 @@
 package br.uea.mypay.tutoriais.demomylaundry.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import br.uea.mypay.tutoriais.demomylaundry.R
 import br.uea.mypay.tutoriais.demomylaundry.adapters.TabelaPedidoAdapter
 import br.uea.mypay.tutoriais.demomylaundry.models.*
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_novo_pedido.*
 
 class NovoPedidoActivity : AppCompatActivity() {
@@ -36,12 +36,20 @@ class NovoPedidoActivity : AppCompatActivity() {
     lateinit var adapterTabelaPedido: TabelaPedidoAdapter
 
     companion object {
-        var numIncluidos = 0
-    }
-
-    object infoPedido {
-        lateinit var listaItens: MutableList<ItemPedido>
         var id: Int = 0
+        var listaItens: MutableList<ItemPedido> = mutableListOf()
+        var numIncluidos = 0
+
+        fun clearLista() {
+            listaItens.clear()
+            numIncluidos = 0
+        }
+
+        fun addItemPedido(item: ItemPedido) {
+            listaItens.add(item)
+            numIncluidos++
+
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,16 +57,18 @@ class NovoPedidoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_novo_pedido)
         setTitle(R.string.receber_pedido)
 
-        adapterTabelaPedido = TabelaPedidoAdapter(this, servicoList)
+        val pedidosPreferences = getSharedPreferences("pedidos", Context.MODE_PRIVATE)
+        id = pedidosPreferences.getInt("proxId", 0)
+
+        adapterTabelaPedido = TabelaPedidoAdapter(this, servicoList, findViewById(R.id.novoPedido_tvNumIncluidos) as TextView)
         novoPedido_lv.adapter = adapterTabelaPedido
+
+        novoPedido_tvNumIncluidos.text = "$numIncluidos"
 
         novoPedido_btFinalizarPedido.setOnClickListener {
             startActivity(Intent(this, ResumoPedidoActivity::class.java))
-            finish()
         }
         setSpinner()
-
-        infoPedido.listaItens = mutableListOf()
     }
 
     private fun setSpinner() {
@@ -78,10 +88,8 @@ class NovoPedidoActivity : AppCompatActivity() {
                     6 -> servicoList = ArrayList(servicoListDB.filter { it.tipoServico == TipoServico.CALIBRAGEM })
                 }
                 adapterTabelaPedido.notifyDataSetChanged()
-                adapterTabelaPedido = TabelaPedidoAdapter(this@NovoPedidoActivity, servicoList)
+                adapterTabelaPedido = TabelaPedidoAdapter(this@NovoPedidoActivity, servicoList, novoPedido_tvNumIncluidos)
                 novoPedido_lv.adapter = adapterTabelaPedido
-
-                novoPedido_tvNumIncluidos.text = numIncluidos.toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}

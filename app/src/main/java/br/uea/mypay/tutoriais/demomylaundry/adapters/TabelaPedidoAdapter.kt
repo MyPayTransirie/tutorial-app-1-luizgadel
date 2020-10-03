@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import br.uea.mypay.tutoriais.demomylaundry.R
 import br.uea.mypay.tutoriais.demomylaundry.activities.NovoPedidoActivity
@@ -23,6 +24,7 @@ import java.lang.NumberFormatException
 class TabelaPedidoAdapter(
     private val ctx: Context,
     private val listaServicos: List<Servico>,
+    private val tvNumIncluidos: TextView
 ): BaseAdapter() {
 
     companion object {
@@ -68,8 +70,8 @@ class TabelaPedidoAdapter(
                 try {
                     qtdServico = input.text.toString().toInt()
                     val item = ItemPedido(servico, "", qtdServico)
-                    NovoPedidoActivity.infoPedido.listaItens.add(item)
-                    NovoPedidoActivity.numIncluidos++
+                    NovoPedidoActivity.addItemPedido(item)
+                    tvNumIncluidos.text = NovoPedidoActivity.numIncluidos.toString()
                 } catch (e: Exception) {
                     Toast.makeText(ctx, "Informe um valor", Toast.LENGTH_SHORT).show()
                 }

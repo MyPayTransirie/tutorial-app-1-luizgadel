@@ -32,7 +32,13 @@
         <activity
             android:name=".activities.CadastroWebActivity"
             android:parentActivityName=".activities.CadastroMainActivity" />
-        <activity android:name=".activities.CadastroMainActivity" />
+        <activity android:name=".activities.CadastroMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
